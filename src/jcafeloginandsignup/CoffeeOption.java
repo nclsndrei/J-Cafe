@@ -28,13 +28,13 @@ public class CoffeeOption extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        hotButton = new javax.swing.JRadioButton();
-        coldButton = new javax.swing.JRadioButton();
-        amountField = new javax.swing.JTextField();
-        sizeCombo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         dineInButton = new javax.swing.JRadioButton();
         takeOutButton = new javax.swing.JRadioButton();
+        coffeeQuantitySpinner = new javax.swing.JSpinner(new javax.swing.SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
+        hotRadioBtn = new javax.swing.JRadioButton();
+        coldRadioBtn = new javax.swing.JRadioButton();
+        sizecombobox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(249, 246, 238));
 
@@ -97,33 +97,6 @@ public class CoffeeOption extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jLabel4.setText("Size:");
 
-        hotButton.setBackground(new java.awt.Color(249, 246, 238));
-        hotButton.setFont(new java.awt.Font("Yu Gothic Medium", 0, 11)); // NOI18N
-        hotButton.setForeground(new java.awt.Color(169, 120, 83));
-        hotButton.setText("Hot");
-        hotButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hotButtonActionPerformed(evt);
-            }
-        });
-
-        coldButton.setBackground(new java.awt.Color(249, 246, 238));
-        coldButton.setFont(new java.awt.Font("Yu Gothic Medium", 0, 11)); // NOI18N
-        coldButton.setForeground(new java.awt.Color(169, 120, 83));
-        coldButton.setText("Cold");
-        coldButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coldButtonActionPerformed(evt);
-            }
-        });
-
-        amountField.setBackground(new java.awt.Color(249, 246, 238));
-
-        sizeCombo.setBackground(new java.awt.Color(249, 246, 238));
-        sizeCombo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 11)); // NOI18N
-        sizeCombo.setForeground(new java.awt.Color(169, 120, 83));
-        sizeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Size", "Small", "Medium", "Large", " " }));
-
         jLabel5.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jLabel5.setText("Dining Option:");
 
@@ -147,6 +120,29 @@ public class CoffeeOption extends javax.swing.JPanel {
             }
         });
 
+        hotRadioBtn.setText("Hot");
+        hotRadioBtn.setFocusCycleRoot(true);
+        hotRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hotRadioBtnActionPerformed(evt);
+            }
+        });
+
+        coldRadioBtn.setText("Cold");
+        coldRadioBtn.setFocusCycleRoot(true);
+        coldRadioBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coldRadioBtnActionPerformed(evt);
+            }
+        });
+
+        sizecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Medium", "LArge" }));
+        sizecombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizecomboboxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -155,30 +151,28 @@ public class CoffeeOption extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(coffeeQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(coldRadioBtn)
+                        .addComponent(hotRadioBtn)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(coldButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
                         .addGap(31, 31, 31)
+                        .addComponent(sizecombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addGap(20, 20, 20))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(sizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(takeOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dineInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(51, 51, 51))))))
+                            .addComponent(takeOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dineInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,16 +183,21 @@ public class CoffeeOption extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hotButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(coldButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(takeOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(coffeeQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(takeOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(hotRadioBtn)
+                            .addComponent(sizecombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addComponent(coldRadioBtn)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
@@ -239,21 +238,41 @@ public class CoffeeOption extends javax.swing.JPanel {
 
     private void orderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderButtonActionPerformed
         // TODO add your handling code here:
-        String temperature = "";
-        if (hotButton.isSelected()) {
-            temperature = "Hot";
-        } else if (coldButton.isSelected()) {
-            temperature = "Cold";
         
-        String size = (String) sizeCombo.getSelectedItem();
-        String amountText = amountField.getText();
-
-        // Basic validation
-        if (temperature.isEmpty() || size == null || amountText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please complete all fields before ordering.", "Error", JOptionPane.ERROR_MESSAGE);
+        int quantity = (int) coffeeQuantitySpinner.getValue();
+        String type= "";
+        String dining = "";
+        
+        if (hotRadioBtn.isSelected()) {
+            type = "Hot";
+        } else if (coldRadioBtn.isSelected()) {
+            type = "Cold";
+        }else {
+            JOptionPane.showMessageDialog(this, "Please select Hot or Cold.");
             return;
-            }
         }
+        
+        if (dineInButton.isSelected()) {
+            type = "Dine In";
+        } else if (takeOutButton.isSelected()) {
+            type = "Take Out";
+        }else {
+            JOptionPane.showMessageDialog(this, "Please select Dining Option");
+            return;
+        }
+        
+        String size = sizecombobox.getSelectedItem().toString();
+        String coffeename = coffeeNameLabel.getText().replace("Selected: ", "").trim();
+        
+        int unitPrice = ProductPrices.getCoffeePrice(coffeename, size, type);
+        int totalPrice = unitPrice *quantity;
+        
+        String orderLine = coffeeName + " (" + type + ",  " + size + ") x " + quantity  + " - " + dining + " = Php " + totalPrice;
+        
+        CartSystem.addToCart(orderLine);
+        JOptionPane.showMessageDialog(this, "Added to cart!");
+        
+        
     }//GEN-LAST:event_orderButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -263,19 +282,10 @@ public class CoffeeOption extends javax.swing.JPanel {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
-        sizeCombo.setSelectedIndex(0);
-        amountField.setText("");
-        hotButton.setSelected(false);
-        coldButton.setSelected(false);
+        
+        
+        
     }//GEN-LAST:event_clearButtonActionPerformed
-
-    private void hotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hotButtonActionPerformed
-
-    private void coldButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coldButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coldButtonActionPerformed
 
     private void dineInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dineInButtonActionPerformed
         // TODO add your handling code here:
@@ -285,15 +295,28 @@ public class CoffeeOption extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_takeOutButtonActionPerformed
 
+    private void hotRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotRadioBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hotRadioBtnActionPerformed
+
+    private void coldRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coldRadioBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coldRadioBtnActionPerformed
+
+    private void sizecomboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizecomboboxActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_sizecomboboxActionPerformed
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amountField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel coffeeNameLabel;
-    private javax.swing.JRadioButton coldButton;
+    private javax.swing.JSpinner coffeeQuantitySpinner;
+    private javax.swing.JRadioButton coldRadioBtn;
     private javax.swing.JRadioButton dineInButton;
-    private javax.swing.JRadioButton hotButton;
+    private javax.swing.JRadioButton hotRadioBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -302,7 +325,7 @@ public class CoffeeOption extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton orderButton;
-    private javax.swing.JComboBox<String> sizeCombo;
+    private javax.swing.JComboBox<String> sizecombobox;
     private javax.swing.JRadioButton takeOutButton;
     // End of variables declaration//GEN-END:variables
 }
