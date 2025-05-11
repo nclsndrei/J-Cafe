@@ -44,7 +44,7 @@ public class PastryOption extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         dineInButton = new javax.swing.JRadioButton();
         takeOutButton = new javax.swing.JRadioButton();
-        pastryQuantitySpinner = new javax.swing.JSpinner(new javax.swing.SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
+        amountField = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -130,6 +130,8 @@ public class PastryOption extends javax.swing.JPanel {
             }
         });
 
+        amountField.setBackground(new java.awt.Color(249, 246, 238));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -138,17 +140,14 @@ public class PastryOption extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(pastryQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101)
+                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(95, 95, 95)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap(143, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(takeOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dineInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(takeOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dineInButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,9 +158,9 @@ public class PastryOption extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pastryQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(takeOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
         );
@@ -209,7 +208,9 @@ public class PastryOption extends javax.swing.JPanel {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
-        
+        amountField.setText("");
+        dineInButton.setSelected(false);
+        takeOutButton.setSelected(false);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -219,7 +220,20 @@ public class PastryOption extends javax.swing.JPanel {
 
     private void orderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderButtonActionPerformed
         // TODO add your handling code here:
-        
+        String dining = "";
+        if (dineInButton.isSelected()) {
+            dining = "Dine In";
+        } else if (takeOutButton.isSelected()) {
+            dining = "Take Out";
+
+            String amountText = amountField.getText();
+
+            // Basic validation
+            if (dining.isEmpty() || amountText.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please complete all fields before ordering.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
     }//GEN-LAST:event_orderButtonActionPerformed
 
     private void dineInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dineInButtonActionPerformed
@@ -232,6 +246,7 @@ public class PastryOption extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amountField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel coffeeNameLabel;
@@ -245,7 +260,6 @@ public class PastryOption extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JButton orderButton;
-    private javax.swing.JSpinner pastryQuantitySpinner;
     private javax.swing.JRadioButton takeOutButton;
     // End of variables declaration//GEN-END:variables
 

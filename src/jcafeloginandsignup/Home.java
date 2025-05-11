@@ -42,6 +42,7 @@ public class Home extends javax.swing.JFrame {
         menu = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 500));
 
         bg.setBackground(new java.awt.Color(249, 246, 238));
 
@@ -66,11 +67,6 @@ public class Home extends javax.swing.JFrame {
         });
 
         cart.setText("CART");
-        cart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout topbarLayout = new javax.swing.GroupLayout(topbar);
         topbar.setLayout(topbarLayout);
@@ -208,16 +204,6 @@ public class Home extends javax.swing.JFrame {
     menu.revalidate();
     menu.repaint();
     }//GEN-LAST:event_categoryActionPerformed
-
-    private void cartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartActionPerformed
-        // TODO add your handling code here:
-        
-        Home.setMenuPanel(new OrderSummary());
-
-        
-        
-
-    }//GEN-LAST:event_cartActionPerformed
 
     
     public void setUser(String name) {

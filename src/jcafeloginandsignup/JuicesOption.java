@@ -43,9 +43,9 @@ public class JuicesOption extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         dineInButton = new javax.swing.JRadioButton();
         takeOutButton = new javax.swing.JRadioButton();
+        amountField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        juicesQuantitySpinner = new javax.swing.JSpinner(new javax.swing.SpinnerNumberModel(1, 1, Integer.MAX_VALUE, 1));
-        sizecombobox = new javax.swing.JComboBox<>();
+        sizeCombo = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -129,15 +129,15 @@ public class JuicesOption extends javax.swing.JPanel {
             }
         });
 
+        amountField.setBackground(new java.awt.Color(249, 246, 238));
+
         jLabel4.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jLabel4.setText("Size:");
 
-        sizecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Small", "Medium", "LArge" }));
-        sizecombobox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sizecomboboxActionPerformed(evt);
-            }
-        });
+        sizeCombo.setBackground(new java.awt.Color(249, 246, 238));
+        sizeCombo.setFont(new java.awt.Font("Yu Gothic Medium", 0, 11)); // NOI18N
+        sizeCombo.setForeground(new java.awt.Color(169, 120, 83));
+        sizeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Size", "Small", "Medium", "Large", " " }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -150,21 +150,17 @@ public class JuicesOption extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addGap(69, 69, 69)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(62, 62, 62))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(juicesQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(176, 176, 176)
-                                .addComponent(takeOutButton))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(sizecombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(sizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(takeOutButton))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -175,13 +171,12 @@ public class JuicesOption extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(juicesQuantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sizecombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14)
+                    .addComponent(amountField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sizeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dineInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(takeOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
@@ -227,7 +222,10 @@ public class JuicesOption extends javax.swing.JPanel {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
-      
+        sizeCombo.setSelectedIndex(0);
+        amountField.setText("");
+        dineInButton.setSelected(false);
+        takeOutButton.setSelected(false);
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -237,7 +235,21 @@ public class JuicesOption extends javax.swing.JPanel {
 
     private void orderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderButtonActionPerformed
         // TODO add your handling code here:
-        
+        String dining = "";
+        if (dineInButton.isSelected()) {
+            dining = "Dine In";
+        } else if (takeOutButton.isSelected()) {
+            dining = "Take Out";
+
+            String size = (String) sizeCombo.getSelectedItem();
+            String amountText = amountField.getText();
+
+            // Basic validation
+            if (dining.isEmpty() || amountText.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please complete all fields before ordering.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
     }//GEN-LAST:event_orderButtonActionPerformed
 
     private void dineInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dineInButtonActionPerformed
@@ -248,12 +260,9 @@ public class JuicesOption extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_takeOutButtonActionPerformed
 
-    private void sizecomboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizecomboboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sizecomboboxActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amountField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel coffeeNameLabel;
@@ -266,9 +275,8 @@ public class JuicesOption extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JSpinner juicesQuantitySpinner;
     private javax.swing.JButton orderButton;
-    private javax.swing.JComboBox<String> sizecombobox;
+    private javax.swing.JComboBox<String> sizeCombo;
     private javax.swing.JRadioButton takeOutButton;
     // End of variables declaration//GEN-END:variables
 
